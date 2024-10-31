@@ -1,0 +1,19 @@
+<h4>Detalle de la Factura</h4>
+<table class="table table-striped table-hover" *ngIf="(items.length > 0) else otro">
+  <thead class="table-light">
+    <tr>
+      <th>ID</th>
+      <th>Producto</th>
+      <th>Precio</th>
+      <th>Cantidad</th>
+      <th>remove</th>
+    </tr>
+  </thead>
+  <tbody>
+     <tr app-row-item [item]="item" *ngFor="let item of items" (RemoveEvent)="onRemove($event)"></tr>
+  </tbody>
+</table>
+
+<ng-template #otro>
+    <div class="alert alert-warning">No tiene items la factura</div>
+</ng-template>

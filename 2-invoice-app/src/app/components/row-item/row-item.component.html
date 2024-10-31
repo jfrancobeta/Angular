@@ -1,0 +1,11 @@
+<td>{{ item.id }}</td>
+<td>{{ item.product }}</td>
+<td>{{ item.price }}</td>
+<td>{{ item.quantity }}</td>
+<td>
+  <button class="btn btn-danger" 
+    aria-label="Eliminar" 
+    (click)="onRemove(item.id)" >
+    <i class="bi bi-trash"></i>
+  </button>
+</td>

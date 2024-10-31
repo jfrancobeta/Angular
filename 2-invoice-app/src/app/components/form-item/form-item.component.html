@@ -1,0 +1,65 @@
+<form (ngSubmit)="onSubmit(itemForm)" class="mx-3" #itemForm="ngForm">
+  <input
+    name="product"
+    placeholder="product"
+    class="form-control m-3"
+    [(ngModel)]="item.product"
+    required 
+    minlength="5"
+    #product="ngModel"
+    [class.is-valid]="product.valid && (product.dirty || product.touched)"
+  />
+
+  <ng-container *ngIf="product.invalid && (product.dirty || product.touched)">
+    <div *ngIf="product.errors!['required']" class="text-danger mx-3">
+        Product required
+    </div>
+    <div *ngIf="product.errors!['minlength']" class="text-danger mx-3">
+        Product should have a length of 5
+    </div>
+  </ng-container>
+ 
+  <input
+    name="price"
+    placeholder="price"
+    class="form-control m-3"
+    [(ngModel)]="item.price"
+    type="number"
+    required
+    min="5"
+    #price="ngModel"
+    [class.is-valid]="price.valid && (price.dirty || price.touched)"
+  />
+
+  <ng-container *ngIf="price.invalid && (price.dirty || price.touched)">
+    <div *ngIf="price.errors!['required']" class="text-danger mx-3">
+        price required
+    </div>
+    <div *ngIf="price.errors!['min']" class="text-danger mx-3">
+        price should have to be higier of 5
+    </div>
+  </ng-container>
+
+  
+  <input
+    name="quantity"
+    placeholder="quantity"
+    class="form-control m-3"
+    [(ngModel)]="item.quantity"
+    type="number"
+    required
+    min="1"
+    #quantity="ngModel"
+    [class.is-valid]="quantity.valid && (quantity.dirty || quantity.touched)"
+  />
+  <ng-container *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)">
+    <div *ngIf="quantity.errors!['required']" class="text-danger mx-3">
+        quantity required
+    </div>
+    <div *ngIf="quantity.errors!['min']" class="text-danger mx-3">
+        quantity should have to be higier of 1
+    </div>
+  </ng-container>
+
+  <button class="btn btn-primary m-3" [disabled]="itemForm.form.invalid">Nuevo Item</button>
+</form>
