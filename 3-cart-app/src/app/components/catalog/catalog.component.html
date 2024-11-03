@@ -1,6 +1,8 @@
+<h2 class="mt-4">Catalogo de compras!</h2>
 <div class="row">
     @for (product of products; track $index) {
         <div class="col-4 my-2 ">
+            
 
             <app-product-card [product]="product" (productEvent)="onAddCart($event)"></app-product-card>
         </div>

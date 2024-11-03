@@ -1,0 +1,6 @@
+import { createAction, props } from "@ngrx/store";
+import { Product } from "../models/product";
+
+export const load = createAction('load', props<{products: Product[]}>())
+//effects
+export const findAll = createAction('findAll')

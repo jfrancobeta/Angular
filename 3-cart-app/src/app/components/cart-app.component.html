@@ -1,31 +1,5 @@
-<app-navbar [items]="items" (openCart)="setShowCard()"></app-navbar>
+<app-navbar [items]="items" ></app-navbar>
 
 <div class="container">
-<h2 class="mt-4">Catalogo de compras!</h2>
-
-<div class="row">
-    <div  [className]="showCard? 'col-8':'col'">
-        <app-catalog [products]="products" (productEvent)="onAddCart($event)"></app-catalog>
-
-    </div>
-
-    @if (showCard) {
-        <div class="col-4 position-relative">
-    
-            @if (items.length >0) {
-                <button class="btn btn-danger float-end btn-sm" (click)="setShowCard()">
-                    <i class="bi bi-x-lg"></i>
-                </button>
-                <app-cart [items]="items" 
-                (idProductEvent)="onDeleteCart($event)"
-                [total]="total"
-                >
-                </app-cart>
-            
-            }@else {
-                <div class="alert alert-warning">no hay elementos</div>
-            }
-        </div>
-    }
-</div>
+  <router-outlet></router-outlet>
 </div>
