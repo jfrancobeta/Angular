@@ -1,0 +1,30 @@
+@if (users.length == 0) {
+    <div class="alert alert-warning">No hay registro</div>
+}@else {
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>lastname</th>
+                <th>email</th>
+                <th>username</th>
+                <th>Eliminar</th>
+                <th>editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (user of users; track $index) {
+                <tr>
+                    <td>{{user.name}}</td>
+                    <td>{{user.lastname}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.username}}</td>
+                    <td><button (click)="onDelete(user.id)" class="btn btn-danger btn-sm">Eliminar</button></td>
+                    <td><button (click)="onSelectedUser(user)" class="btn btn-primary btn-sm">Editar</button></td>
+                </tr>
+    
+            }
+        </tbody>
+    </table>
+    
+}

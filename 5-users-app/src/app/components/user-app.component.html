@@ -1,0 +1,26 @@
+<div class="container my-4">
+  <h3>{{ title }}</h3>
+  <div class="row">
+    <div>
+      <button (click)="setOpen()">Create User</button>
+    </div>
+    @if (open) {
+      <div class="col">
+        
+        <app-form-user 
+        (newUserEvent)="addUser($event)"
+        [user]="userSelected"
+        >
+        
+      </app-form-user>
+      </div>
+      }
+    <div class="col">
+      <app-user
+        [users]="users"
+        (idEventEmiter)="onDelete($event)"
+        (selectUserEvent)="setSelectedUser($event)"
+      ></app-user>
+    </div>
+  </div>
+</div>
