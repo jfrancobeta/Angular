@@ -32,7 +32,16 @@ export class UserAppComponent implements OnInit {
     this.service.findAll().subscribe( users => this.users = users)
     this.addUser()
     this.onDelete()
+    this.findById()
     
+  }
+
+  findById(){
+    this.data.findUserById.subscribe(id => {
+      const user = this.users.find(user => user.id == id)
+
+      this.data.selectUserEvent.emit(user)
+    })
   }
 
   addUser(){
