@@ -7,12 +7,17 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.backend.jfranco.userapp.users_backend.entities.User;
+import com.springboot.backend.jfranco.userapp.users_backend.models.UserRequest;
 import com.springboot.backend.jfranco.userapp.users_backend.services.IUserService;
 
 import jakarta.validation.Valid;
@@ -38,9 +43,16 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
+    
+
     @GetMapping
     public List<User> list() {
         return userService.findAll();
+    }
+    @GetMapping("/page/{page}")
+    public Page<User> listPage(@PathVariable Integer page) {
+        Pageable pageable = PageRequest.of(page, 3);
+        return userService.findAll(pageable);
     }
 
     @GetMapping("/{id}")
@@ -63,19 +75,14 @@ public class UserController {
     
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> Edit(@Valid @RequestBody User entity, BindingResult result,@PathVariable Long id ) {
+    public ResponseEntity<?> Edit(@Valid @RequestBody UserRequest user, BindingResult result,@PathVariable Long id ) {
         if(result.hasErrors()){
             return validation(result);
         }
-        Optional<User> userOptional = userService.findById(id);
+        Optional<User> userOptional = userService.update(user,id);
         if (userOptional.isPresent()) {
-            User userBd = userOptional.get();
-            userBd.setEmail(entity.getEmail());
-            userBd.setLastname(entity.getLastname());
-            userBd.setName(entity.getName());
-            userBd.setPassword(entity.getPassword());
-            userBd.setUsername(entity.getUsername());
-            return ResponseEntity.ok(userService.save(userBd));
+            
+            return ResponseEntity.ok(userOptional.get());
 
         }else{
 
