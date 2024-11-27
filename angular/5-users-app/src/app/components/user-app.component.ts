@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./navbar/navbar.component";
 import { SharingDataService } from '../services/sharing-data.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-user-app',
@@ -26,7 +27,8 @@ export class UserAppComponent implements OnInit {
   constructor(private service: UserService,
     private data: SharingDataService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private serviceAuth: AuthService
   ){
       
   }
@@ -37,7 +39,41 @@ export class UserAppComponent implements OnInit {
     this.onDelete()
     this.findById()
     this.pageUsersEvent()
+    this.handlerLogin()
     
+  }
+
+  handlerLogin(){
+    this.data.handlerLoginEvent.subscribe(({username,password}) => {
+      this.serviceAuth.loginUser({username,password}).subscribe({
+        next: response => {
+          const token = response.token
+          console.log(token)
+          const payload = this.serviceAuth.getPayload(token);
+
+          const user = {username: payload.sub};
+          const login = {
+            user,
+            isAuth : true,
+            isAdmin: payload.isAdmin
+          }
+          
+          this.serviceAuth.token = token;
+
+          this.serviceAuth.user = login;
+          
+          // console.log(payload)
+          this.router.navigate(['/users/page/0'])
+        },
+        error: error => {
+          if(error.status == 401){
+            Swal.fire("errror en el login", "username o password incorrectos","error")
+          }else{
+            throw error;
+          }
+        }
+      })
+    })
   }
 
   pageUsersEvent(){
