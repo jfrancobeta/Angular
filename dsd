@@ -1,0 +1,53 @@
+[33mcommit 5506aa979f58a90fdf3b323a840bcd8a337e6b30[m[33m ([m[1;36mHEAD -> [m[1;32mseccion-11A[m[33m, [m[1;31morigin/seccion-9[m[33m, [m[1;32mseccion-9[m[33m)[m
+Author: jfranco <juandavid.francob@gmail.com>
+Date:   Mon Nov 11 20:27:57 2024 -0500
+
+    pagiacion y seguridad
+
+[33mcommit a6b0db641de657d573eed4590f0318a9dac36405[m
+Author: jfranco <juandavid.francob@gmail.com>
+Date:   Mon Nov 11 20:12:11 2024 -0500
+
+    seguridad en el backend
+
+[33mcommit e1a229e865c615103f633392e3552a8f337b41f7[m[33m ([m[1;31morigin/seccion-8[m[33m, [m[1;32mseccion-8[m[33m)[m
+Author: jfranco <juandavid.francob@gmail.com>
+Date:   Thu Nov 7 22:41:49 2024 -0500
+
+    spring y angular validaciones desde el back y mostrar en el front y cominiacion entre spring y angular
+
+[33mcommit 3c1e8395c36c7e605ccdab4f35fc4454e4fb429a[m[33m ([m[1;31morigin/seccion-7[m[33m, [m[1;32mseccion-7[m[33m)[m
+Author: jfranco <juandavid.francob@gmail.com>
+Date:   Tue Nov 5 15:56:07 2024 -0500
+
+    obteniendo el id desde la ruta
+
+[33mcommit 3ebc8ab85a563471b63a67c1843e45f24cd5b965[m[33m ([m[1;31morigin/seccion-6[m[33m, [m[1;32mseccion-6[m[33m)[m
+Author: jfranco <juandavid.francob@gmail.com>
+Date:   Mon Nov 4 21:15:37 2024 -0500
+
+    routes en paginas
+
+[33mcommit 11b42e78e65082e6b7ab22397cb5ba9b10c6d185[m[33m ([m[1;31morigin/seccion-5[m[33m, [m[1;32mseccion-5[m[33m)[m
+Author: jfranco <juandavid.francob@gmail.com>
+Date:   Mon Nov 4 18:38:51 2024 -0500
+
+    push antes del routes
+
+[33mcommit 64d010181c0f8e8af7cfee00bd48614fb6af5554[m[33m ([m[1;31morigin/seccion-4[m[33m, [m[1;32mseccion-4[m[33m)[m
+Author: jfranco <juandavid.francob@gmail.com>
+Date:   Sun Nov 3 16:26:28 2024 -0500
+
+    redux y un poco de observable
+
+[33mcommit 411f68630e31ea5c903437b33ca7bc52245bb837[m[33m ([m[1;32mseccion-3A[m[33m)[m
+Author: jfranco <juandavid.francob@gmail.com>
+Date:   Thu Oct 31 13:03:33 2024 -0500
+
+    Agregar carpeta 2-invoice-app a seccion-4
+
+[33mcommit d0d021fb70d4cea86e3eb633f1b235989ceee5a0[m[33m ([m[1;31morigin/seccion-3[m[33m, [m[1;32mseccion-3[m[33m)[m
+Author: jfranco <juandavid.francob@gmail.com>
+Date:   Thu Oct 31 11:55:07 2024 -0500
+
+    commit seccion 3
